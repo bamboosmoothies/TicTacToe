@@ -103,8 +103,8 @@ public class TicTacToe {
     public static void runBotsTurn(char[][] gameBoard) {
         boolean test = true;
         while(test) {
-            int botX = (int) (Math.random() * 2 + 1);
-            int boxY = (int) (Math.random() * 2 + 1);
+            int botX = (int) (Math.random() * 3) + 1;
+            int boxY = (int) (Math.random() * 3) + 1;
             
             if(botX == 1) {
                 if (boxY == 1){botX = 0; boxY = 0;}
@@ -124,7 +124,7 @@ public class TicTacToe {
 
             for (int i = botX; i == botX; i++) {
                 for (int j = boxY; j == boxY; j++) {
-                    if (!(gameBoard[i][j] == 'X')) {
+                    if (!(gameBoard[i][j] == 'X') && (!(gameBoard[i][j] == 'O'))) {
                         gameBoard[i][j] = 'O';
                         printGameBoard(gameBoard);
                         test = false;
