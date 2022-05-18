@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -57,7 +58,7 @@ public class TicTacToe {
         while(test) {
             Scanner scan = new Scanner(System.in);
             printGameBoard(gameBoard);
-            System.out.println("Enter X position (1-3):");
+            System.out.println("\nEnter X position (1-3):");
             int posX = scan.nextInt();
             System.out.println("Enter Y position (1-3):");
             int posY = scan.nextInt();    
@@ -80,16 +81,19 @@ public class TicTacToe {
 
             for (int i = posX; i == posX; i++) {
                 for (int j = posY; j == posY; j++) {
-                    if (!(gameBoard[i][j] == 'O')) {
+                    if ((gameBoard[i][j] == 'X')) {
+                        System.out.println("You cannot occupy your own spot. Re-enter your coordinates.");
+                        test = true;
+                    }                    
+                    else if (!(gameBoard[i][j] == 'O')) {
                         gameBoard[i][j] = 'X';
                         printGameBoard(gameBoard);
                         test = false;
                     }
                     else {
-                        System.out.println("You cannot occupy opponent's spot. Re-enter your coordinates.");
+                        System.out.println("You cannot occupy an opponent's spot. Re-enter your coordinates.");
                         Thread.sleep(2000);
-                        test = true;
-                        
+                        test = true;       
                     }
                 }
             }
@@ -139,17 +143,37 @@ public class TicTacToe {
         Thread.sleep(1500);
     }
     
-    public static void printPlayerTurn() {
+    public static void printPlayerTurn() throws InterruptedException {
         System.out.println("\nPlayer's Turn!\n");
     }
     
     public static void checkGameBoard(char[][] gameBoard) {
-        //TODO
-        //Create a for-loop iterate by 2; Check for horiz, diag, vert, stalemate for both player & computer
-
+        
+    
         
         
     }
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
     
