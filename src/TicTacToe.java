@@ -34,6 +34,7 @@ public class TicTacToe {
             runBotsTurn(gameBoard);
             
             //Verify stalemate
+            //TODO!!!
             checkGameBoard(gameBoard);
         
 //        d = false;
@@ -41,6 +42,7 @@ public class TicTacToe {
         
 
     } 
+    
     public static void printGameBoard(char[][] gameBoard) {
         for(char[] row : gameBoard) {
             for (char c : row) {
@@ -142,9 +144,13 @@ public class TicTacToe {
     }
     
     public static void checkGameBoard(char[][] gameBoard) {
+        //TODO
+        //Create a for-loop iterate by 2; Check for horiz, diag, vert, stalemate for both player & computer
+
+        
         
     }
- 
+    
 }
     
 
