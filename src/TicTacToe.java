@@ -24,7 +24,6 @@ public class TicTacToe {
             {'-', '+', '-', '+', '-'},
             {' ', '|', ' ', '|', ' '}
         };
-            
         boolean d = true;
         while(d) {
             printPlayerTurn();
@@ -35,11 +34,15 @@ public class TicTacToe {
             runBotsTurn(gameBoard);
             
             //Verify stalemate
-            //TODO!!!
-            checkGameBoard(gameBoard);
-        
-//        d = false;
-        }   
+            d = checkGameBoard(gameBoard);
+
+        }
+        System.out.println("Replay again? Enter Y/N");
+        char dook = scan.nextLine().charAt(0);
+        if (dook == 'Y' || dook == 'y') {
+            d = false;
+        }
+        System.exit(0);
         
 
     } 
@@ -147,11 +150,50 @@ public class TicTacToe {
         System.out.println("\nPlayer's Turn!\n");
     }
     
-    public static void checkGameBoard(char[][] gameBoard) {
+    public static boolean checkGameBoard(char[][] gameBoard) {
+        //scans Row
+        int total = 0;
+        int totalBot = 0;
+        for (int i = 0; i < gameBoard.length; i++) {
+            for (int j = 0; j < gameBoard.length; j++) {
+
+                if(gameBoard[i][j] == 'X') {
+                    total = total + 3;
+                }
+                
+                if(gameBoard[i][j] == 'O') {
+                    totalBot = totalBot + 3;
+                }
+            }
+        }
+        for (int i = 2; i > gameBoard.length; i--) {
+            for (int j = 0; j < gameBoard.length; j++) {
+
+                if (gameBoard[i][j] == 'X') {
+                    total = total + 3;
+                }
+                
+                if(gameBoard[i][j] == 'O') {
+                totalBot = totalBot + 3;
+                }
+            }
+
+        }
         
-    
-        
-        
+        if(total == 9) {
+            System.out.println("\nYOU WIN!");
+            return false;
+        }
+        else if (totalBot == 9) {
+            System.out.println("\nYOU LOSE!");
+            return false;
+        }
+        else if (total != totalBot) {
+            System.out.println("Stalemate...");
+            return false;
+        }
+        return true;
+
     }
     
 
