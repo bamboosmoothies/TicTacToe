@@ -1,0 +1,25 @@
+public static void checkGameBoard(char[][] gameBoard) throws InterruptedException {
+        printGameBoard(gameBoard);
+        //scans Row
+        int total = 0;
+        for (int i = 0; i < gameBoard.length; i++) {
+            for (int j = 0; j < gameBoard.length; j++) {
+           
+                if(gameBoard[i][j] == 'X') {
+                    total = total + 3;
+                }
+            }
+                
+        }
+        for (int i = 2; i > gameBoard.length; i--) {
+            for (int j = 0; j < gameBoard.length; j++) {
+
+                if (gameBoard[i][j] == 'X') {
+                    total = total + 3;
+                }
+            }
+
+        }
+        if(total == 9) {
+            System.out.println("YOU WIN!");
+        }
